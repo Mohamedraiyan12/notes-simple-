@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <p>notes</p>
+    </nav>
+    <div class="container" id="container">
+        <div class="box-container" id="box-container">
+        <p contenteditable ="true" class="input-box" id="input-content">A web developer is a programmer or a coder who develops World Wide Web applications using a client–server model.</p>
+        <button onclick="del(event)">Delete</button>
+        </div>
+    </div>
+    <button class="btn" onclick="openpopup()" id="addbtn">+</button>
+    <div class="popup-overlay" id="popoverlay"></div>
+    <div class="popup-content" id="popcontent">
+        <h3>Write a some notes</h3>
+        <p contenteditable ="true" class="input-box" id="inputval"></p>
+        <button class="popbtn" id="addbtn" onclick="add()">Add</button>
+        <button class="popbtn" id="popbtnclose">Cancel</button>
+    </div>
+    <script>
+        let popcontent =document.getElementById("popcontent")
+        let popoverlay =document.getElementById("popoverlay")
+    function openpopup(){
+        popoverlay.style.display ="block";
+        popcontent.style.display ="block";
+    }
+
+    let cancelbtn =document.getElementById("popbtnclose")
+    cancelbtn.addEventListener("click", function (){
+        popoverlay.style.display = "none";
+        popcontent.style.display ="none";
+    });
+
+    let container = document.getElementById("container")
+    let addbtn = document.getElementById("addbtn")
+    let textcontent = document.getElementById("textcontent")
+    let inputval = document.getElementById("inputval")
+
+
+    function add() {
+    let div = document.createElement("div")
+    div.setAttribute("class","box-container")
+    div.innerHTML =`<p contenteditable ="true" class="input-box">${inputval.textContent}</p>
+    <button onclick="del(event)">Delete</button>`
+    container.append(div)
+    popoverlay.style.display = "none";
+    popcontent.style.display = "none";
+    }
+    function del(event){
+        event.target.parentElement.remove()
+    }
+    </script>
+</body>
+</html>
