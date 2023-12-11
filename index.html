@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>notes</title>
+    <title>notes creation</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src ="main.js"></script>
 </head>
 <body>
     <nav>
@@ -24,38 +25,6 @@
         <button class="popbtn" id="addbtn" onclick="add()">Add</button>
         <button class="popbtn" id="popbtnclose">Cancel</button>
     </div>
-    <script>
-        let popcontent =document.getElementById("popcontent")
-        let popoverlay =document.getElementById("popoverlay")
-    function openpopup(){
-        popoverlay.style.display ="block";
-        popcontent.style.display ="block";
-    }
-
-    let cancelbtn =document.getElementById("popbtnclose")
-    cancelbtn.addEventListener("click", function (){
-        popoverlay.style.display = "none";
-        popcontent.style.display ="none";
-    });
-
-    let container = document.getElementById("container")
-    let addbtn = document.getElementById("addbtn")
-    let textcontent = document.getElementById("textcontent")
-    let inputval = document.getElementById("inputval")
-
-
-    function add() {
-    let div = document.createElement("div")
-    div.setAttribute("class","box-container")
-    div.innerHTML =`<p contenteditable ="true" class="input-box">${inputval.textContent}</p>
-    <button onclick="del(event)">Delete</button>`
-    container.append(div)
-    popoverlay.style.display = "none";
-    popcontent.style.display = "none";
-    }
-    function del(event){
-        event.target.parentElement.remove()
-    }
-    </script>
+    
 </body>
 </html>
